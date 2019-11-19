@@ -1,0 +1,24 @@
+{
+  "name": "PY-BPMN20",
+  "prefix": "py",
+  "uri": "http://py-service",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "TestServiceTask",
+      "superClass": [
+        "bpmn:Task"
+      ],
+      "properties": [
+        {
+          "name": "prop1",
+          "isAttr": true,
+          "type": "String"
+        },
+      ]
+    },
+  ]
+}

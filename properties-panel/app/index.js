@@ -5,11 +5,28 @@ import propertiesPanelModule from 'bpmn-js-properties-panel';
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda.json';
 
+
+import resizeAllModule from 'bpmn-js-nyan/lib/resize-all-rules';
+import colorPickerModule from 'bpmn-js-nyan/lib/color-picker';
+//import nyanDrawModule from 'bpmn-js-nyan/lib/nyan/draw';
+//import nyanPaletteModule from 'bpmn-js-nyan/lib/nyan/palette';
+import customTaskDrawModule from './moddles/CustomTask/draw';
+import customTaskPaletteModule from './moddles/CustomTask/palette';
+
+
+
+//service prop test
+import bpmnPropertiesProvider from 'bpmn-js-properties-panel/lib/provider/bpmn';
+import servicePropsProviderModule from './provider/ServiceProps';
+import servicePropsDescriptor from './resources/ServiceProps.json';
+
+
 import {
   debounce
 } from 'min-dash';
 
 import diagramXML from '../resources/newDiagram.bpmn';
+//import qaPackage from '../resources/qa.json';
 
 
 var container = $('#js-drop-zone');
@@ -23,10 +40,20 @@ var bpmnModeler = new BpmnModeler({
   },
   additionalModules: [
     propertiesPanelModule,
-    propertiesProviderModule
+
+    //propertiesProviderModule,
+    //bpmnPropertiesProvider,
+    servicePropsProviderModule,
+
+    resizeAllModule,
+    colorPickerModule,
+    customTaskDrawModule,
+    customTaskPaletteModule
   ],
   moddleExtensions: {
-    camunda: camundaModdleDescriptor
+    camunda: camundaModdleDescriptor,
+    service: servicePropsDescriptor
+    //qa: qaPackage
   }
 });
 container.removeClass('with-diagram');
